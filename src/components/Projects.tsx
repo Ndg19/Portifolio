@@ -17,7 +17,7 @@ const Projects = () => {
       title: "Amazone Clone",
       category: "Full-Stack",
       image: "/images/Amazon-thumnail.png",
-      link: "https://niguse-amazone-clone.netlify.app/",
+      link: "https://nigusieamaclone.netlify.app/",
       github: "https://github.com/Ndg19/Amazone-Clone-2025",
       description:
         "Full-featured Amazon Clone with product listings, authentication, cart management, and checkout built with modern full-stack technologies.",
@@ -27,7 +27,7 @@ const Projects = () => {
       title: "Evangadi Forum",
       category: "Full-Stack",
       image: "/images/forum-thumbnail.jpg",
-      link: "https://evangadiqaforum.netlify.app/",
+      link: "https://evangadiforumapp.netlify.app/",
       github: "https://github.com/Ndg19/evangadi-forum-frontend",
       description:
         "Interactive Q&A platform with authentication, responsive UI, and dynamic backend for seamless knowledge sharing.",
@@ -46,8 +46,8 @@ const Projects = () => {
       id: 4,
       title: "Apple React Replica",
       category: "web",
-      image: "/images/project-5.jpg",
-      link: "https://replicaapp.netlify.app/",
+      image: "/images/apple.png",
+      link: "https://nigusereactapple.vercel.app/",
       github: "https://github.com/Ndg19/apples-React-Replica",
       description:
         "Pixel-perfect Apple website clone showcasing responsive design and interactive UI components with React.",
