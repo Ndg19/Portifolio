@@ -1,14 +1,18 @@
 import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
- const phrases = [
-   "Full-stack Web Developer",
-   "UI/UX Designer",
-   "Software Engineer",
- ];
+import { motion } from "framer-motion";
+import Magnetic from "./Magnetic";
+
+const phrases = [
+  "Full-stack Web Developer",
+  "UI/UX Designer",
+  "Software Engineer",
+  "Project Manager",
+];
+
 const Hero = () => {
   const [typedText, setTypedText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
- 
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
 
@@ -51,64 +55,95 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center pt-16"
+      className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden"
     >
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-black to-gray-900 opacity-90"></div>
-        <div
-          className="absolute inset-0 bg-cover bg-center mix-blend-overlay"
-          style={{ backgroundImage: "url('/images/bg_1.png')" }}
-        ></div>
+        <div className="absolute inset-0 bg-obsidian"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent opacity-30"></div>
+        {/* Animated Background Blur */}
+        <motion.div
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 -left-20 w-80 h-80 bg-yellow-500/20 rounded-full blur-[120px]"
+        />
+        <motion.div
+          animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-1/4 -right-20 w-96 h-96 bg-yellow-600/10 rounded-full blur-[150px]"
+        />
       </div>
 
-      <div className="container mx-auto px-20 z-10">
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
-            <h3 className="text-yellow-500 font-medium mb-4 tracking-widest">
-              HELLO!
-            </h3>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              I'm <span className="text-yellow-500">Niguse Desalegn</span>
+      <div className="container mx-auto px-6 md:px-20 z-10">
+        <div className="flex flex-col md:flex-row items-center gap-12">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="md:w-1/2 text-center md:text-left"
+          >
+            <span className="text-yellow-500 font-medium mb-4 tracking-widest block uppercase text-sm">
+              Available for projects
+            </span>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
+              Crafting <span className="text-yellow-500">Digital</span> Experiences
             </h1>
-            <h2 className="text-2xl md:text-3xl font-light mb-8 h-12">
+            <h2 className="text-2xl md:text-3xl font-light mb-8 h-12 text-gray-300">
               <span className="inline-block">{typedText}</span>
-              <span className="animate-blink">|</span>
+              <span className="animate-pulse text-yellow-500">|</span>
             </h2>
-            <div className="flex gap-4 justify-center md:justify-start">
-              <a
-                href="#contact"
-                className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-medium py-3 px-8 rounded-full transition-colors"
-              >
-                Hire Me
-              </a>
-              <a
-                href="#projects"
-                className="border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-gray-900 font-medium py-3 px-8 rounded-full transition-colors"
-              >
-                My Projects
-              </a>
+            <div className="flex flex-row items-center justify-center md:justify-start gap-4">
+              <Magnetic>
+                <a
+                  href="#contact"
+                  className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-6 md:py-4 md:px-10 rounded-full transition-all flex items-center shadow-lg shadow-yellow-500/20 text-sm md:text-base whitespace-nowrap"
+                >
+                  Hire Me
+                </a>
+              </Magnetic>
+              <Magnetic>
+                <a
+                  href="#projects"
+                  className="border-2 border-yellow-500/50 text-yellow-500 hover:bg-yellow-500 hover:text-gray-900 font-bold py-3 px-6 md:py-4 md:px-10 rounded-full transition-all text-sm md:text-base whitespace-nowrap"
+                >
+                  My Projects
+                </a>
+              </Magnetic>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="md:w-3/2 flex justify-center relative">
-            <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-yellow-500/30">
-              <img
-                src="/images/about.jpg"
-                alt="Niguse Desalegn"
-                className="w-full  object-cover object-center"
-              />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="md:w-1/2 flex justify-center relative"
+          >
+            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[450px]">
+              <div className="absolute inset-0 border-2 border-yellow-500/20 rounded-full animate-spin-slow" />
+              <div className="absolute -inset-4 border border-yellow-500/10 rounded-full animate-reverse-spin-slow" />
+              <div className="relative w-full h-full rounded-full overflow-hidden border-8 border-gray-800 shadow-2xl">
+                <img
+                  src="/images/about.jpg"
+                  alt="Niguse Desalegn"
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                />
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+      >
         <button onClick={scrollToAbout} aria-label="Scroll down">
-          <ChevronDown size={36} className="text-yellow-500" />
+          <ChevronDown size={36} className="text-yellow-500/50 hover:text-yellow-500 transition-colors" />
         </button>
-      </div>
+      </motion.div>
     </section>
   );
 };
 
 export default Hero;
+

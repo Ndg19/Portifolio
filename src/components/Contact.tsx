@@ -28,8 +28,8 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-14 bg-gray-800">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-24 bg-obsidian border-t border-white/5">
+      <div className="container mx-auto px-6 md:px-20">
         {/* Header */}
         <div className="flex flex-col items-center mb-16 text-center">
           <span className="text-yellow-500 font-medium tracking-widest uppercase text-sm mb-3">

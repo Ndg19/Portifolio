@@ -38,21 +38,20 @@ const Navbar = ({ activeSection }: NavbarProps) => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-gray-900/95 shadow-lg py-3" : "bg-transparent py-5"
-      }`}
+      className="fixed top-4 left-0 w-full px-4 md:px-10 z-50 transition-all duration-500"
     >
-      <div className="container mx-auto px-20 flex justify-between items-center">
+      <div className={`max-w-7xl mx-auto flex items-center justify-between px-8 py-3 md:py-4 border border-black/5 backdrop-blur-2xl transition-all duration-500 rounded-full ${isScrolled ? "bg-white/90 shadow-[0_8px_32px_rgba(0,0,0,0.1)] border-black/5 scale-[0.98]" : "bg-white/40 shadow-lg border-white/10"
+        }`}>
         <a
           href="#home"
-          className="flex items-center gap-2 text-2xl font-bold text-primary"
+          className="flex items-center gap-2 text-2xl font-bold text-black"
           onClick={(e) => {
             e.preventDefault();
             scrollToSection("home");
           }}
         >
           <img src="/images/logo.png" alt="Niguse Logo" className="w-8 h-8" />
-          <span className="text-yellow-500">Niguse</span>
+          <span className="text-black">Niguse</span>
         </a>
 
         <div className="hidden md:flex space-x-8">
@@ -60,9 +59,8 @@ const Navbar = ({ activeSection }: NavbarProps) => {
             <a
               key={link.id}
               href={`#${link.id}`}
-              className={`transition-colors hover:text-yellow-500 ${
-                activeSection === link.id ? "text-yellow-500 font-medium" : ""
-              }`}
+              className={`transition-colors hover:text-primary text-black/80 ${activeSection === link.id ? "text-black font-bold" : ""
+                }`}
               onClick={(e) => {
                 e.preventDefault();
                 scrollToSection(link.id);
@@ -75,7 +73,7 @@ const Navbar = ({ activeSection }: NavbarProps) => {
 
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden text-white"
+          className="md:hidden text-black"
           aria-label="Toggle menu"
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -83,15 +81,14 @@ const Navbar = ({ activeSection }: NavbarProps) => {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden bg-gray-800 py-4 px-4 absolute top-full left-0 w-full shadow-lg">
-          <div className="flex flex-col space-y-4">
+        <div className="md:hidden mt-2 bg-white/95 backdrop-blur-3xl py-10 px-8 rounded-[2.5rem] shadow-2xl border border-black/5 animate-in fade-in zoom-in duration-500 overflow-hidden">
+          <div className="flex flex-col space-y-6 text-center">
             {navLinks.map((link) => (
               <a
                 key={link.id}
                 href={`#${link.id}`}
-                className={`py-2 transition-colors hover:text-yellow-500 ${
-                  activeSection === link.id ? "text-yellow-500 font-medium" : ""
-                }`}
+                className={`py-2 transition-colors hover:text-primary text-black/80 ${activeSection === link.id ? "text-black font-bold" : ""
+                  }`}
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection(link.id);

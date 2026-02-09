@@ -41,8 +41,8 @@ const Resume = () => {
   ];
 
   return (
-    <section id="resume" className="py-10 bg-gray-800">
-      <div className="container mx-auto px-20">
+    <section id="resume" className="py-24 bg-obsidian border-t border-white/5">
+      <div className="container mx-auto px-6 md:px-20">
         <div className="flex flex-col items-center mb-16">
           <span className="text-yellow-500 font-medium tracking-widest uppercase text-sm mb-3">Resume</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center">My Experience</h2>
@@ -61,11 +61,11 @@ const Resume = () => {
               <GraduationCap size={28} className="text-yellow-500 mr-4" />
               <h3 className="text-2xl font-bold text-white">Education</h3>
             </div>
-            
+
             <div className="space-y-8">
               {education.map((item, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="relative pl-8 border-l-2 border-yellow-500/30 pb-8 group"
                 >
                   <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-yellow-500 group-hover:scale-125 transition-transform"></div>
@@ -86,11 +86,11 @@ const Resume = () => {
               <Briefcase size={28} className="text-yellow-500 mr-4" />
               <h3 className="text-2xl font-bold text-white">Experience</h3>
             </div>
-            
+
             <div className="space-y-8">
               {experience.map((item, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="relative pl-8 border-l-2 border-yellow-500/30 pb-8 group"
                 >
                   <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-yellow-500 group-hover:scale-125 transition-transform"></div>
@@ -107,8 +107,10 @@ const Resume = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <a 
-            href="#" 
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-10 py-3 mb-2 bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-medium rounded-full transition-colors inline-block"
           >
             Download CV
